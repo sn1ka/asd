@@ -15,7 +15,7 @@ class Mycog1(commands.Cog):
             count_minutes, count_seconds = divmod(rem, 60)
         if difference.days == 0 and count_hours == 0 and count_minutes == 0 and count_seconds == 0:
             await ctx.send("Etkinlik Bitti!")
-            break
+        break
         await ctx.send('Etkinliğin bitmesine: '
               + str(difference.days) + " Gün "
               + str(count_hours) + " Saat "
