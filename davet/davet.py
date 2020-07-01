@@ -1,4 +1,5 @@
-
+import time
+import datetime
 from redbot.core import commands
 import discord
 
@@ -7,17 +8,21 @@ class Mycog1(commands.Cog):
 
 
     @commands.command()
-    async def davet(self, ctx):
-        """Ganesh botu sunucuna davet etmek için aşağıdaki linkleri kullanabilirsin."""
-        # Your code will go here
-        e = discord.Embed() 
-        e.title = "Davet"
-        e.description = "Ganesh’i sunucunuzda görmekten mutluluk duyarız! **!yardım** komutu ile komutları görüntüleyebilirsiniz.**Ya da isterseniz aşağıdaki linki kullanabilirsiniz**" 
-        e.colour = discord.Color.red()
-        await ctx.author.send(embed=e) # send it
+    async def countdown(stop):
+        while True:
+            difference = stop - datetime.datetime.now()
+            count_hours, rem = divmod(difference.seconds, 86400)
+            count_minutes, count_seconds = divmod(rem, 60)
+        if difference.days == 0 and count_hours == 0 and count_minutes == 0 and count_seconds == 0:
+            await ctx.send("Etkinlik Bitti!")
+            break
+        await ctx.send('Etkinliğin bitmesine: '
+              + str(difference.days) + " Gün "
+              + str(count_hours) + " Saat "
+              + str(count_minutes) + " Dakika "
+              + str(count_seconds) + " Saniye Kaldı. "
+              )
+        await asyncio.sleep(1)
 
-        e2 = discord.Embed() 
-        e2.title = "<Davet>"
-        e2.description = "Ganesh’i sunucunuzda görmekten mutluluk duyarız! **!yardım** komutu ile komutları görüntüleyebilirsiniz." 
-        e2.colour = discord.Color.red()
-        await ctx.author.send(embed=e2) # send it
+end_time = datetime.datetime(2020, 6, 21, 19, 35, 0)
+countdown(end_time)
