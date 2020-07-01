@@ -7,7 +7,7 @@ class Mycog1(commands.Cog):
 
 
     @commands.command()
-    async def countdown(stop):
+    async def countdown(ctx,stop):
         while True:
             difference = stop - datetime.datetime.now()
             count_hours, rem = divmod(difference.seconds, 86400)
