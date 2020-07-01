@@ -8,5 +8,5 @@ class Mycog1(commands.Cog):
 
     @commands.command()
     async def sure(self, ctx):
-        x = datetime.datetime(2020, 6, 21, 19, 35, 0)
+        x = datetime.datetime(2021, 6, 21, 19, 35, 0)
         await ctx.send(x)
