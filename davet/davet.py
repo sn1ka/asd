@@ -7,6 +7,6 @@ class Mycog1(commands.Cog):
 
 
     @commands.command()
-    async def sure(ctx):
+    async def sure(self, ctx):
         x = datetime.datetime(2020, 5, 17)
         await ctx.send(x)
